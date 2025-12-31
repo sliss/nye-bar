@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NYE Cocktails</title>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState } = React;
+
+const cocktails = [
+  {
+    name: "Negroni",
+    category: "Classic",
+    spirits: ["Tanqueray Gin", "Campari", "Carpano Antica"],
+    ingredients: ["1 oz Gin", "1 oz Campari", "1 oz Sweet Vermouth"],
+    garnish: "Orange peel",
+    instructions: "Stir all ingredients with ice. Strain into rocks glass over ice. Express orange peel over drink.",
+    strength: "Strong",
+    flavor: "Bitter & Herbaceous",
+    special: true
+  },
+  {
+    name: "Boulevardier",
+    category: "Classic",
+    spirits: ["Maker's Mark Bourbon", "Campari", "Carpano Antica"],
+    ingredients: ["1.5 oz Bourbon", "1 oz Campari", "1 oz Sweet Vermouth"],
+    garnish: "Orange peel or cherry",
+    instructions: "Stir all ingredients with ice. Strain into coupe or rocks glass.",
+    strength: "Strong",
+    flavor: "Bitter & Rich",
+    special: true
+  },
+  {
+    name: "Manhattan",
+    category: "Classic",
+    spirits: ["Rittenhouse Rye", "Carpano Antica", "Regans' Orange Bitters"],
+    ingredients: ["2 oz Rye", "1 oz Sweet Vermouth", "2 dashes Orange Bitters"],
+    garnish: "Cherry",
+    instructions: "Stir all ingredients with ice. Strain into chilled coupe glass.",
+    strength: "Strong",
+    flavor: "Smooth & Spicy",
+    special: true
+  },
+  {
+    name: "Old Fashioned",
+    category: "Classic",
+    spirits: ["Rittenhouse Rye", "Regans' Orange Bitters"],
+    ingredients: ["2 oz Rye", "0.25 oz Simple syrup", "2-3 dashes Orange Bitters"],
+    garnish: "Orange peel & cherry",
+    instructions: "Combine ingredients in rocks glass. Add ice and stir until chilled.",
+    strength: "Strong",
+    flavor: "Spicy & Bold"
+  },
+  {
+    name: "Bourbon Old Fashioned",
+    category: "Classic",
+    spirits: ["Maker's Mark Bourbon", "Regans' Orange Bitters"],
+    ingredients: ["2 oz Bourbon", "0.25 oz Simple syrup", "2-3 dashes Orange Bitters"],
+    garnish: "Orange peel & cherry",
+    instructions: "Combine ingredients in rocks glass. Add ice and stir until chilled.",
+    strength: "Strong",
+    flavor: "Sweet & Smooth"
+  },
+  {
+    name: "Whiskey Sour",
+    category: "Classic",
+    spirits: ["Rittenhouse Rye"],
+    ingredients: ["2 oz Rye", "0.75 oz Lemon juice", "0.75 oz Simple syrup", "Egg white (optional)"],
+    garnish: "Cherry & orange peel",
+    instructions: "Dry shake with egg white, then shake with ice. Strain into rocks glass.",
+    strength: "Medium",
+    flavor: "Tart & Smooth"
+  },
+  {
+    name: "Bourbon Sour",
+    category: "Classic",
+    spirits: ["Maker's Mark Bourbon"],
+    ingredients: ["2 oz Bourbon", "0.75 oz Lemon juice", "0.75 oz Simple syrup", "Egg white (optional)"],
+    garnish: "Cherry & orange peel",
+    instructions: "Dry shake with egg white, then shake with ice. Strain into rocks glass.",
+    strength: "Medium",
+    flavor: "Sweet & Tart"
+  },
+  {
+    name: "Gold Rush",
+    category: "Classic",
+    spirits: ["Maker's Mark Bourbon"],
+    ingredients: ["2 oz Bourbon", "0.75 oz Lemon juice", "0.75 oz Simple syrup"],
+    garnish: "None",
+    instructions: "Shake all ingredients with ice. Strain into rocks glass over ice.",
+    strength: "Medium",
+    flavor: "Sweet & Warming"
+  },
+  {
+    name: "Gin Sour",
+    category: "Classic",
+    spirits: ["Tanqueray Gin"],
+    ingredients: ["2 oz Gin", "0.75 oz Lemon juice", "0.75 oz Simple syrup", "Egg white (optional)"],
+    garnish: "Lemon wheel",
+    instructions: "Dry shake with egg white, then shake with ice. Strain into coupe.",
+    strength: "Medium",
+    flavor: "Tart & Botanical"
+  },
+  {
+    name: "Bee's Knees",
+    category: "Classic",
+    spirits: ["Tanqueray Gin"],
+    ingredients: ["2 oz Gin", "0.75 oz Lemon juice", "0.75 oz Simple syrup"],
+    garnish: "Lemon twist",
+    instructions: "Shake all ingredients with ice. Strain into chilled coupe.",
+    strength: "Medium",
+    flavor: "Floral & Bright"
+  },
+  {
+    name: "Vodka Sour",
+    category: "Classic",
+    spirits: ["Tito's Vodka"],
+    ingredients: ["2 oz Vodka", "0.75 oz Lemon juice", "0.75 oz Simple syrup", "Egg white (optional)"],
+    garnish: "Lemon wheel",
+    instructions: "Dry shake with egg white, then shake with ice. Strain into coupe.",
+    strength: "Medium",
+    flavor: "Clean & Tart"
+  },
+  {
+    name: "Lemon Drop",
+    category: "Classic",
+    spirits: ["Tito's Vodka", "Limoncello"],
+    ingredients: ["1.5 oz Vodka", "0.5 oz Limoncello", "1 oz Lemon juice", "0.5 oz Simple syrup"],
+    garnish: "Sugar rim & lemon twist",
+    instructions: "Shake all ingredients with ice. Strain into sugar-rimmed martini glass.",
+    strength: "Medium",
+    flavor: "Sweet & Citrus"
+  },
+  {
+    name: "Tequila Sour",
+    category: "Classic",
+    spirits: ["1800 Tequila"],
+    ingredients: ["2 oz Tequila", "0.75 oz Lemon juice", "0.75 oz Simple syrup", "Egg white (optional)"],
+    garnish: "Lemon wheel",
+    instructions: "Dry shake with egg white, then shake with ice. Strain into coupe.",
+    strength: "Medium",
+    flavor: "Citrus & Earthy"
+  },
+  {
+    name: "Italian Margarita",
+    category: "Crowd Pleaser",
+    spirits: ["1800 Tequila", "Limoncello"],
+    ingredients: ["1.5 oz Tequila", "1 oz Limoncello", "1 oz Lemon juice", "0.5 oz Simple syrup"],
+    garnish: "Lemon wheel & salt rim",
+    instructions: "Shake all ingredients with ice. Strain into salt-rimmed glass over ice.",
+    strength: "Medium",
+    flavor: "Citrus & Sweet"
+  },
+  {
+    name: "Zacapa Neat",
+    category: "Sipper",
+    spirits: ["Zacapa Rum"],
+    ingredients: ["2 oz Zacapa Rum"],
+    garnish: "None",
+    instructions: "Pour into snifter or rocks glass. Sip slowly and enjoy.",
+    strength: "Strong",
+    flavor: "Rich & Complex"
+  },
+  {
+    name: "French 75",
+    category: "Classic",
+    spirits: ["Tanqueray Gin"],
+    ingredients: ["1 oz Gin", "0.5 oz Lemon juice", "0.5 oz Simple syrup", "3 oz Champagne"],
+    garnish: "Lemon twist",
+    instructions: "Shake gin, lemon, and syrup with ice. Strain into flute. Top with champagne.",
+    strength: "Medium",
+    flavor: "Elegant & Sparkling",
+    special: true
+  },
+  {
+    name: "Limoncello Spritz",
+    category: "Aperitivo",
+    spirits: ["Limoncello"],
+    ingredients: ["2 oz Limoncello", "3 oz Prosecco", "Splash of water"],
+    garnish: "Lemon wheel",
+    instructions: "Build over ice in wine glass. Add prosecco. Stir gently.",
+    strength: "Light",
+    flavor: "Bright & Refreshing",
+    special: true
+  },
+  {
+    name: "Campari Spritz",
+    category: "Aperitivo",
+    spirits: ["Campari"],
+    ingredients: ["2 oz Campari", "3 oz Prosecco", "Splash of water"],
+    garnish: "Orange slice",
+    instructions: "Build over ice in wine glass. Add prosecco. Stir gently.",
+    strength: "Light",
+    flavor: "Bitter & Bubbly"
+  },
+  {
+    name: "Gin & Tonic",
+    category: "Highball",
+    spirits: ["Tanqueray Gin"],
+    ingredients: ["2 oz Gin", "4 oz Tonic water"],
+    garnish: "Lemon wedge",
+    instructions: "Build over ice in highball glass. Stir gently.",
+    strength: "Light",
+    flavor: "Botanical & Crisp"
+  },
+  {
+    name: "Port & Tonic",
+    category: "Aperitivo",
+    spirits: ["Graham's Tawny Port"],
+    ingredients: ["2 oz Tawny Port", "4 oz Tonic water"],
+    garnish: "Orange peel",
+    instructions: "Build over ice. Stir gently.",
+    strength: "Light",
+    flavor: "Sweet & Refreshing"
+  },
+  {
+    name: "Vodka Tonic",
+    category: "Highball",
+    spirits: ["Tito's Vodka"],
+    ingredients: ["2 oz Vodka", "4 oz Tonic water"],
+    garnish: "Lemon wedge",
+    instructions: "Build over ice in highball glass. Stir gently.",
+    strength: "Light",
+    flavor: "Clean & Crisp"
+  }
+];
+
+const categories = ["All", "Specials", "Classic", "Crowd Pleaser", "Aperitivo", "Highball", "Sipper"];
+
+function CocktailMenu() {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedSpirit, setSelectedSpirit] = useState("All");
+
+  const getRecipeUrl = (name) => {
+    const slug = name.toLowerCase()
+      .replace(/&/g, 'and')
+      .replace(/'/g, '')
+      .replace(/\s+/g, '-');
+    return `recipes/${slug}.html`;
+  };
+  
+  const spirits = ["All", "Gin", "Vodka", "Bourbon", "Rye", "Tequila", "Rum", "Campari", "Limoncello", "Port"];
+
+  const filteredCocktails = cocktails.filter(cocktail => {
+    const matchesCategory = selectedCategory === "All" || 
+      (selectedCategory === "Specials" ? cocktail.special : cocktail.category === selectedCategory);
+    const matchesSpirit = selectedSpirit === "All" || cocktail.spirits.some(s => 
+      s.toLowerCase().includes(selectedSpirit.toLowerCase())
+    );
+    return matchesCategory && matchesSpirit;
+  }).sort((a, b) => {
+    if (selectedCategory === "Specials") {
+      if (a.name === "French 75") return -1;
+      if (b.name === "French 75") return 1;
+    }
+    return 0;
+  });
+
+  const getStrengthDots = (strength) => {
+    const count = strength === "Light" ? 1 : strength === "Medium" ? 2 : 3;
+    return Array(3).fill(0).map((_, i) => (
+      <span key={i} style={{
+        width: 6,
+        height: 6,
+        borderRadius: '50%',
+        backgroundColor: i < count ? '#c9a227' : '#3a3a3a',
+        display: 'inline-block',
+        marginRight: 3
+      }} />
+    ));
+  };
+
+  return (
+    <div style={{
+      minHeight: '100vh',
+      backgroundColor: '#0d0d0d',
+      color: '#f5f0e8',
+      fontFamily: '"Cormorant Garamond", Georgia, serif',
+      position: 'relative',
+      overflow: 'hidden'
+    }}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Bebas+Neue&display=swap');
+        
+        * { box-sizing: border-box; }
+        
+        .art-deco-border {
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          right: 20px;
+          bottom: 20px;
+          border: 1px solid #c9a227;
+          pointer-events: none;
+        }
+        
+        .art-deco-border::before {
+          content: '';
+          position: absolute;
+          top: 8px;
+          left: 8px;
+          right: 8px;
+          bottom: 8px;
+          border: 1px solid rgba(201, 162, 39, 0.3);
+        }
+        
+        .corner-ornament {
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          border-color: #c9a227;
+          border-style: solid;
+        }
+        
+        .corner-tl { top: 12px; left: 12px; border-width: 3px 0 0 3px; }
+        .corner-tr { top: 12px; right: 12px; border-width: 3px 3px 0 0; }
+        .corner-bl { bottom: 12px; left: 12px; border-width: 0 0 3px 3px; }
+        .corner-br { bottom: 12px; right: 12px; border-width: 0 3px 3px 0; }
+        
+        .cocktail-card {
+          background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+          border: 1px solid #2a2a2a;
+          padding: 24px 28px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          position: relative;
+        }
+        
+        .cocktail-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, #c9a227, transparent);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+        
+        .cocktail-card:hover {
+          border-color: #c9a227;
+          transform: translateY(-2px);
+        }
+        
+        .cocktail-card:hover::before {
+          opacity: 1;
+        }
+        
+        .filter-btn {
+          background: transparent;
+          border: 1px solid #3a3a3a;
+          color: #8a8a8a;
+          padding: 10px 20px;
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: 14px;
+          letter-spacing: 2px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+        
+        .filter-btn:hover {
+          border-color: #c9a227;
+          color: #c9a227;
+        }
+        
+        .filter-btn.active {
+          background: #c9a227;
+          border-color: #c9a227;
+          color: #0d0d0d;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-in {
+          animation: fadeIn 0.4s ease forwards;
+        }
+      `}</style>
+
+      <div className="art-deco-border" />
+      <div className="corner-ornament corner-tl" />
+      <div className="corner-ornament corner-tr" />
+      <div className="corner-ornament corner-bl" />
+      <div className="corner-ornament corner-br" />
+
+      <div style={{ position: 'relative', zIndex: 1, padding: '60px 50px' }}>
+        <header style={{ textAlign: 'center', marginBottom: 50 }}>
+          <div style={{ 
+            fontFamily: '"Bebas Neue", sans-serif',
+            fontSize: 14,
+            letterSpacing: 8,
+            color: '#c9a227',
+            marginBottom: 8
+          }}>
+            NEW YEAR'S EVE
+          </div>
+          <h1 style={{ 
+            fontFamily: '"Bebas Neue", sans-serif',
+            fontSize: 72,
+            letterSpacing: 6,
+            margin: 0,
+            lineHeight: 0.9,
+            color: '#f5f0e8'
+          }}>
+            COCKTAILS
+          </h1>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 16,
+            marginTop: 16
+          }}>
+            <span style={{ 
+              width: 60, 
+              height: 1, 
+              background: 'linear-gradient(90deg, transparent, #c9a227)' 
+            }} />
+            <span style={{ color: '#c9a227', fontSize: 18 }}>✦</span>
+            <span style={{ 
+              fontStyle: 'italic', 
+              color: '#8a8a8a',
+              fontSize: 18
+            }}>
+              Two Thousand Twenty-Five
+            </span>
+            <span style={{ color: '#c9a227', fontSize: 18 }}>✦</span>
+            <span style={{ 
+              width: 60, 
+              height: 1, 
+              background: 'linear-gradient(90deg, #c9a227, transparent)' 
+            }} />
+          </div>
+        </header>
+
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          gap: 8, 
+          marginBottom: 16,
+          flexWrap: 'wrap'
+        }}>
+          {categories.map(cat => (
+            <button
+              key={cat}
+              className={`filter-btn ${selectedCategory === cat ? 'active' : ''}`}
+              onClick={() => setSelectedCategory(cat)}
+              style={cat === "Specials" ? { borderColor: '#c9a227', color: selectedCategory === cat ? '#0d0d0d' : '#c9a227' } : {}}
+            >
+              {cat === "Specials" ? `✦ ${cat.toUpperCase()} ✦` : cat.toUpperCase()}
+            </button>
+          ))}
+        </div>
+        
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center',
+          gap: 8, 
+          marginBottom: 40,
+          flexWrap: 'wrap'
+        }}>
+          <span style={{
+            fontFamily: '"Bebas Neue", sans-serif',
+            fontSize: 12,
+            letterSpacing: 2,
+            color: '#5a5a5a',
+            marginRight: 8
+          }}>
+            BASE SPIRIT
+          </span>
+          {spirits.map(spirit => (
+            <button
+              key={spirit}
+              className={`filter-btn ${selectedSpirit === spirit ? 'active' : ''}`}
+              onClick={() => setSelectedSpirit(spirit)}
+              style={{ padding: '8px 14px', fontSize: 12 }}
+            >
+              {spirit.toUpperCase()}
+            </button>
+          ))}
+        </div>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+          gap: 16,
+          maxWidth: 1000,
+          margin: '0 auto'
+        }}>
+          {filteredCocktails.length === 0 ? (
+            <div style={{
+              gridColumn: '1 / -1',
+              textAlign: 'center',
+              padding: '60px 20px',
+              color: '#5a5a5a',
+              fontStyle: 'italic'
+            }}>
+              No cocktails match these filters
+            </div>
+          ) : filteredCocktails.map((cocktail, index) => (
+            <a
+              key={index}
+              href={getRecipeUrl(cocktail.name)}
+              className="cocktail-card animate-in"
+              style={{ animationDelay: `${index * 0.05}s`, textDecoration: 'none', color: 'inherit' }}
+            >
+              <div style={{ 
+                display: 'flex', 
+                justifyContent: 'space-between', 
+                alignItems: 'flex-start',
+                marginBottom: 8
+              }}>
+                <h3 style={{ 
+                  fontFamily: '"Bebas Neue", sans-serif',
+                  fontSize: 22,
+                  letterSpacing: 2,
+                  margin: 0,
+                  color: '#f5f0e8'
+                }}>
+                  {cocktail.name}
+                </h3>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  {getStrengthDots(cocktail.strength)}
+                </div>
+              </div>
+              <p style={{ 
+                margin: 0,
+                fontSize: 15,
+                fontStyle: 'italic',
+                color: '#8a8a8a'
+              }}>
+                {cocktail.flavor}
+              </p>
+              <div style={{
+                marginTop: 12,
+                fontSize: 12,
+                color: '#5a5a5a',
+                fontFamily: '"Bebas Neue", sans-serif',
+                letterSpacing: 1
+              }}>
+                {cocktail.spirits.map(s => s.split(' ').slice(-1)[0]).join(' · ')}
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <footer style={{
+          textAlign: 'center',
+          marginTop: 60,
+          color: '#5a5a5a',
+          fontSize: 13,
+          fontStyle: 'italic'
+        }}>
+          Tap any cocktail to view the recipe
+        </footer>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<CocktailMenu />);
+  </script>
+</body>
+</html>

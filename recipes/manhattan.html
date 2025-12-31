@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manhattan - NYE Cocktails</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Bebas+Neue&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { min-height: 100vh; background-color: #0d0d0d; color: #f5f0e8; font-family: 'Cormorant Garamond', Georgia, serif; position: relative; overflow-x: hidden; }
+    .art-deco-border { position: fixed; top: 20px; left: 20px; right: 20px; bottom: 20px; border: 1px solid #c9a227; pointer-events: none; }
+    .art-deco-border::before { content: ''; position: absolute; top: 8px; left: 8px; right: 8px; bottom: 8px; border: 1px solid rgba(201, 162, 39, 0.3); }
+    .corner-ornament { position: fixed; width: 40px; height: 40px; border-color: #c9a227; border-style: solid; z-index: 10; }
+    .corner-tl { top: 32px; left: 32px; border-width: 3px 0 0 3px; }
+    .corner-tr { top: 32px; right: 32px; border-width: 3px 3px 0 0; }
+    .corner-bl { bottom: 32px; left: 32px; border-width: 0 0 3px 3px; }
+    .corner-br { bottom: 32px; right: 32px; border-width: 0 3px 3px 0; }
+    .content { position: relative; z-index: 1; max-width: 480px; margin: 0 auto; padding: 60px 40px; min-height: 100vh; display: flex; flex-direction: column; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: #8a8a8a; text-decoration: none; font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 2px; margin-bottom: 40px; transition: color 0.2s; }
+    .back-link:hover { color: #c9a227; }
+    .recipe-card { background: #0d0d0d; border: 2px solid #c9a227; padding: 48px 40px; position: relative; flex: 1; }
+    .recipe-card::before, .recipe-card::after { content: '\25C6'; position: absolute; color: #c9a227; font-size: 12px; }
+    .recipe-card::before { top: 16px; left: 50%; transform: translateX(-50%); }
+    .recipe-card::after { bottom: 16px; left: 50%; transform: translateX(-50%); }
+    .recipe-header { text-align: center; margin-bottom: 24px; }
+    .recipe-name { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 4px; margin: 0; color: #f5f0e8; }
+    .recipe-flavor { font-style: italic; color: #c9a227; margin: 8px 0 0 0; font-size: 16px; }
+    .divider { height: 1px; background: linear-gradient(90deg, transparent, #c9a227, transparent); margin: 20px 0; }
+    .section { margin-bottom: 24px; }
+    .section-title { font-family: 'Bebas Neue', sans-serif; letter-spacing: 3px; font-size: 13px; color: #c9a227; margin-bottom: 12px; }
+    .ingredient { margin: 6px 0; font-size: 16px; color: #d0d0d0; }
+    .method { font-size: 16px; line-height: 1.6; color: #d0d0d0; }
+    .garnish-box { background: #1a1a1a; padding: 16px; text-align: center; }
+    .garnish-label { font-family: 'Bebas Neue', sans-serif; letter-spacing: 3px; font-size: 12px; color: #8a8a8a; }
+    .garnish-text { margin: 8px 0 0 0; font-size: 16px; font-style: italic; color: #c9a227; }
+    @media (max-width: 540px) { .content { padding: 50px 24px; } .recipe-card { padding: 40px 24px; } .recipe-name { font-size: 28px; } }
+  </style>
+</head>
+<body>
+  <div class="art-deco-border"></div>
+  <div class="corner-ornament corner-tl"></div>
+  <div class="corner-ornament corner-tr"></div>
+  <div class="corner-ornament corner-bl"></div>
+  <div class="corner-ornament corner-br"></div>
+  <div class="content">
+    <a href="../cocktail-menu.html" class="back-link"><span>&larr;</span> BACK TO MENU</a>
+    <div class="recipe-card">
+      <div class="recipe-header">
+        <h1 class="recipe-name">MANHATTAN</h1>
+        <p class="recipe-flavor">Smooth &amp; Spicy</p>
+      </div>
+      <div class="divider"></div>
+      <div class="section">
+        <h2 class="section-title">INGREDIENTS</h2>
+        <p class="ingredient">2 oz Rye</p>
+        <p class="ingredient">1 oz Sweet Vermouth</p>
+        <p class="ingredient">2 dashes Orange Bitters</p>
+      </div>
+      <div class="section">
+        <h2 class="section-title">METHOD</h2>
+        <p class="method">Stir all ingredients with ice. Strain into chilled coupe glass.</p>
+      </div>
+      <div class="garnish-box">
+        <span class="garnish-label">GARNISH</span>
+        <p class="garnish-text">Cherry</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
