@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Negroni - NYE Cocktails</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Bebas+Neue&display=swap');
@@ -104,6 +104,17 @@
       margin-bottom: 24px;
     }
 
+    .cocktail-illustration {
+      display: flex;
+      justify-content: center;
+      margin: 24px 0;
+    }
+
+    .cocktail-illustration svg {
+      width: 120px;
+      height: 120px;
+    }
+
     .recipe-name {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 36px;
@@ -198,6 +209,29 @@
       <div class="recipe-header">
         <h1 class="recipe-name">NEGRONI</h1>
         <p class="recipe-flavor">Bitter &amp; Herbaceous</p>
+      </div>
+
+      <div class="cocktail-illustration">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <!-- Rocks glass -->
+          <path d="M30 35 L25 95 C25 100 30 105 40 105 L80 105 C90 105 95 100 95 95 L90 35"
+                fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round"/>
+          <!-- Liquid -->
+          <path d="M32 45 L28 90 C28 94 32 98 40 98 L80 98 C88 98 92 94 92 90 L88 45 Z"
+                fill="rgba(201, 162, 39, 0.15)"/>
+          <!-- Ice cubes -->
+          <rect x="40" y="50" width="18" height="16" rx="2" fill="none" stroke="#c9a227" stroke-width="1.5" opacity="0.6"/>
+          <rect x="62" y="48" width="18" height="16" rx="2" fill="none" stroke="#c9a227" stroke-width="1.5" opacity="0.6"/>
+          <rect x="50" y="68" width="18" height="16" rx="2" fill="none" stroke="#c9a227" stroke-width="1.5" opacity="0.6"/>
+          <!-- Orange peel garnish -->
+          <ellipse cx="75" cy="38" rx="12" ry="6" fill="none" stroke="#c9a227" stroke-width="2"/>
+          <path d="M63 38 Q60 30 65 25 Q72 20 80 22 Q88 24 90 32 Q88 36 87 38"
+                fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round"/>
+          <!-- Decorative art deco lines -->
+          <line x1="20" y1="115" x2="40" y2="115" stroke="#c9a227" stroke-width="1" opacity="0.5"/>
+          <line x1="80" y1="115" x2="100" y2="115" stroke="#c9a227" stroke-width="1" opacity="0.5"/>
+          <circle cx="60" cy="115" r="2" fill="#c9a227" opacity="0.5"/>
+        </svg>
       </div>
 
       <div class="divider"></div>

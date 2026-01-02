@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Italian Margarita - NYE Cocktails</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Bebas+Neue&display=swap');
@@ -23,6 +23,8 @@
     .recipe-card::before { top: 16px; left: 50%; transform: translateX(-50%); }
     .recipe-card::after { bottom: 16px; left: 50%; transform: translateX(-50%); }
     .recipe-header { text-align: center; margin-bottom: 24px; }
+    .cocktail-illustration { display: flex; justify-content: center; margin: 24px 0; }
+    .cocktail-illustration svg { width: 120px; height: 120px; }
     .recipe-name { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 4px; margin: 0; color: #f5f0e8; }
     .recipe-flavor { font-style: italic; color: #c9a227; margin: 8px 0 0 0; font-size: 16px; }
     .divider { height: 1px; background: linear-gradient(90deg, transparent, #c9a227, transparent); margin: 20px 0; }
@@ -48,6 +50,45 @@
       <div class="recipe-header">
         <h1 class="recipe-name">ITALIAN MARGARITA</h1>
         <p class="recipe-flavor">Citrus &amp; Sweet</p>
+      </div>
+      <div class="cocktail-illustration">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <!-- Rocks glass with slight taper -->
+          <path d="M28 30 L24 95 C24 100 30 105 42 105 L78 105 C90 105 96 100 96 95 L92 30"
+                fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round"/>
+          <!-- Salt rim dots -->
+          <circle cx="30" cy="30" r="1.5" fill="#c9a227" opacity="0.7"/>
+          <circle cx="38" cy="28" r="1.5" fill="#c9a227" opacity="0.7"/>
+          <circle cx="46" cy="27" r="1.5" fill="#c9a227" opacity="0.7"/>
+          <circle cx="54" cy="26" r="1.5" fill="#c9a227" opacity="0.7"/>
+          <circle cx="62" cy="26" r="1.5" fill="#c9a227" opacity="0.7"/>
+          <circle cx="70" cy="27" r="1.5" fill="#c9a227" opacity="0.7"/>
+          <circle cx="78" cy="28" r="1.5" fill="#c9a227" opacity="0.7"/>
+          <circle cx="86" cy="29" r="1.5" fill="#c9a227" opacity="0.7"/>
+          <circle cx="90" cy="31" r="1.5" fill="#c9a227" opacity="0.7"/>
+          <!-- Liquid -->
+          <path d="M30 40 L27 90 C27 94 32 98 42 98 L78 98 C88 98 93 94 93 90 L90 40 Z"
+                fill="rgba(201, 162, 39, 0.15)"/>
+          <!-- Ice cubes -->
+          <rect x="38" y="48" width="16" height="14" rx="2" fill="none" stroke="#c9a227" stroke-width="1.5" opacity="0.6"/>
+          <rect x="58" y="46" width="16" height="14" rx="2" fill="none" stroke="#c9a227" stroke-width="1.5" opacity="0.6"/>
+          <rect x="46" y="65" width="16" height="14" rx="2" fill="none" stroke="#c9a227" stroke-width="1.5" opacity="0.6"/>
+          <!-- Lemon wheel garnish on rim -->
+          <circle cx="88" cy="25" r="11" fill="none" stroke="#c9a227" stroke-width="2"/>
+          <circle cx="88" cy="25" r="5" fill="none" stroke="#c9a227" stroke-width="1" opacity="0.6"/>
+          <line x1="88" y1="14" x2="88" y2="20" stroke="#c9a227" stroke-width="1" opacity="0.6"/>
+          <line x1="88" y1="30" x2="88" y2="36" stroke="#c9a227" stroke-width="1" opacity="0.6"/>
+          <line x1="77" y1="25" x2="83" y2="25" stroke="#c9a227" stroke-width="1" opacity="0.6"/>
+          <line x1="93" y1="25" x2="99" y2="25" stroke="#c9a227" stroke-width="1" opacity="0.6"/>
+          <line x1="80" y1="17" x2="84" y2="21" stroke="#c9a227" stroke-width="1" opacity="0.6"/>
+          <line x1="92" y1="29" x2="96" y2="33" stroke="#c9a227" stroke-width="1" opacity="0.6"/>
+          <line x1="80" y1="33" x2="84" y2="29" stroke="#c9a227" stroke-width="1" opacity="0.6"/>
+          <line x1="92" y1="21" x2="96" y2="17" stroke="#c9a227" stroke-width="1" opacity="0.6"/>
+          <!-- Decorative art deco lines -->
+          <line x1="15" y1="115" x2="35" y2="115" stroke="#c9a227" stroke-width="1" opacity="0.5"/>
+          <line x1="85" y1="115" x2="105" y2="115" stroke="#c9a227" stroke-width="1" opacity="0.5"/>
+          <circle cx="60" cy="115" r="2" fill="#c9a227" opacity="0.5"/>
+        </svg>
       </div>
       <div class="divider"></div>
       <div class="section">

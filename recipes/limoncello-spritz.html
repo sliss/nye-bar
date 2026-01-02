@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Limoncello Spritz - NYE Cocktails</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Bebas+Neue&display=swap');
@@ -23,6 +23,8 @@
     .recipe-card::before { top: 16px; left: 50%; transform: translateX(-50%); }
     .recipe-card::after { bottom: 16px; left: 50%; transform: translateX(-50%); }
     .recipe-header { text-align: center; margin-bottom: 24px; }
+    .cocktail-illustration { display: flex; justify-content: center; margin: 24px 0; }
+    .cocktail-illustration svg { width: 120px; height: 120px; }
     .recipe-name { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 4px; margin: 0; color: #f5f0e8; }
     .recipe-flavor { font-style: italic; color: #c9a227; margin: 8px 0 0 0; font-size: 16px; }
     .divider { height: 1px; background: linear-gradient(90deg, transparent, #c9a227, transparent); margin: 20px 0; }
@@ -48,6 +50,36 @@
       <div class="recipe-header">
         <h1 class="recipe-name">LIMONCELLO SPRITZ</h1>
         <p class="recipe-flavor">Bright &amp; Refreshing</p>
+      </div>
+      <div class="cocktail-illustration">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <!-- Wine glass bowl -->
+          <ellipse cx="60" cy="30" rx="28" ry="10" fill="none" stroke="#c9a227" stroke-width="2"/>
+          <path d="M32 30 Q35 65 60 70 Q85 65 88 30" fill="none" stroke="#c9a227" stroke-width="2"/>
+          <!-- Liquid fill -->
+          <path d="M35 35 Q38 60 60 65 Q82 60 85 35 Q72 42 60 42 Q48 42 35 35 Z"
+                fill="rgba(201, 162, 39, 0.15)"/>
+          <!-- Bubbles -->
+          <circle cx="50" cy="45" r="2" fill="none" stroke="#c9a227" stroke-width="1" opacity="0.6"/>
+          <circle cx="68" cy="50" r="1.5" fill="none" stroke="#c9a227" stroke-width="1" opacity="0.5"/>
+          <circle cx="55" cy="55" r="1" fill="none" stroke="#c9a227" stroke-width="1" opacity="0.4"/>
+          <circle cx="65" cy="42" r="1.5" fill="none" stroke="#c9a227" stroke-width="1" opacity="0.6"/>
+          <!-- Stem -->
+          <line x1="60" y1="70" x2="60" y2="95" stroke="#c9a227" stroke-width="2"/>
+          <!-- Base -->
+          <ellipse cx="60" cy="97" rx="18" ry="4" fill="none" stroke="#c9a227" stroke-width="2"/>
+          <!-- Lemon wheel garnish on rim -->
+          <circle cx="82" cy="28" r="10" fill="none" stroke="#c9a227" stroke-width="2"/>
+          <circle cx="82" cy="28" r="4" fill="none" stroke="#c9a227" stroke-width="1" opacity="0.6"/>
+          <line x1="82" y1="18" x2="82" y2="24" stroke="#c9a227" stroke-width="1" opacity="0.6"/>
+          <line x1="82" y1="32" x2="82" y2="38" stroke="#c9a227" stroke-width="1" opacity="0.6"/>
+          <line x1="72" y1="28" x2="78" y2="28" stroke="#c9a227" stroke-width="1" opacity="0.6"/>
+          <line x1="86" y1="28" x2="92" y2="28" stroke="#c9a227" stroke-width="1" opacity="0.6"/>
+          <!-- Decorative art deco lines -->
+          <line x1="20" y1="115" x2="40" y2="115" stroke="#c9a227" stroke-width="1" opacity="0.5"/>
+          <line x1="80" y1="115" x2="100" y2="115" stroke="#c9a227" stroke-width="1" opacity="0.5"/>
+          <circle cx="60" cy="115" r="2" fill="#c9a227" opacity="0.5"/>
+        </svg>
       </div>
       <div class="divider"></div>
       <div class="section">

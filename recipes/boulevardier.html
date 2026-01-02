@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Boulevardier - NYE Cocktails</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Bebas+Neue&display=swap');
@@ -23,6 +23,8 @@
     .recipe-card::before { top: 16px; left: 50%; transform: translateX(-50%); }
     .recipe-card::after { bottom: 16px; left: 50%; transform: translateX(-50%); }
     .recipe-header { text-align: center; margin-bottom: 24px; }
+    .cocktail-illustration { display: flex; justify-content: center; margin: 24px 0; }
+    .cocktail-illustration svg { width: 120px; height: 120px; }
     .recipe-name { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 4px; margin: 0; color: #f5f0e8; }
     .recipe-flavor { font-style: italic; color: #c9a227; margin: 8px 0 0 0; font-size: 16px; }
     .divider { height: 1px; background: linear-gradient(90deg, transparent, #c9a227, transparent); margin: 20px 0; }
@@ -48,6 +50,28 @@
       <div class="recipe-header">
         <h1 class="recipe-name">BOULEVARDIER</h1>
         <p class="recipe-flavor">Bitter &amp; Rich</p>
+      </div>
+      <div class="cocktail-illustration">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <!-- Rocks glass -->
+          <path d="M30 35 L25 95 C25 100 30 105 40 105 L80 105 C90 105 95 100 95 95 L90 35"
+                fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round"/>
+          <!-- Liquid -->
+          <path d="M32 45 L28 90 C28 94 32 98 40 98 L80 98 C88 98 92 94 92 90 L88 45 Z"
+                fill="rgba(201, 162, 39, 0.15)"/>
+          <!-- Ice cubes -->
+          <rect x="40" y="50" width="18" height="16" rx="2" fill="none" stroke="#c9a227" stroke-width="1.5" opacity="0.6"/>
+          <rect x="62" y="48" width="18" height="16" rx="2" fill="none" stroke="#c9a227" stroke-width="1.5" opacity="0.6"/>
+          <rect x="50" y="68" width="18" height="16" rx="2" fill="none" stroke="#c9a227" stroke-width="1.5" opacity="0.6"/>
+          <!-- Cherry garnish -->
+          <circle cx="70" cy="35" r="8" fill="rgba(201, 162, 39, 0.3)" stroke="#c9a227" stroke-width="2"/>
+          <path d="M70 27 Q72 20 78 15" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round"/>
+          <ellipse cx="80" cy="14" rx="4" ry="2" fill="none" stroke="#c9a227" stroke-width="1.5"/>
+          <!-- Decorative art deco lines -->
+          <line x1="20" y1="115" x2="40" y2="115" stroke="#c9a227" stroke-width="1" opacity="0.5"/>
+          <line x1="80" y1="115" x2="100" y2="115" stroke="#c9a227" stroke-width="1" opacity="0.5"/>
+          <circle cx="60" cy="115" r="2" fill="#c9a227" opacity="0.5"/>
+        </svg>
       </div>
       <div class="divider"></div>
       <div class="section">
